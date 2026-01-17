@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin } from "lucide-react";
+import { ArrowDown, Linkedin } from "lucide-react";
 import { siteConfig } from "@/data/content";
 import Image from "next/image";
 
@@ -91,15 +91,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <a
-            href={siteConfig.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 bg-terminal-surface border border-terminal-border rounded-lg text-terminal-text hover:border-terminal-cyan hover:text-terminal-cyan transition-all"
-          >
-            <Github size={20} />
-            <span>GitHub</span>
-          </a>
           <a
             href={siteConfig.social.linkedin}
             target="_blank"

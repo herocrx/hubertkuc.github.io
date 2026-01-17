@@ -5,9 +5,7 @@ export const siteConfig = {
   email: "hubertkuc13@gmail.com",
   location: "Munich, Bavaria, Germany",
   social: {
-    github: "https://github.com/hubertkuc", // Update with your actual GitHub
     linkedin: "https://linkedin.com/in/hubertkuc",
-    twitter: "https://twitter.com/hubertkuc", // Update with your actual Twitter
   },
 };
 
@@ -68,11 +66,17 @@ export const skills = [
   { name: "Swift", level: 95, category: "Languages" },
   { name: "Objective-C", level: 90, category: "Languages" },
   { name: "C++", level: 85, category: "Languages" },
+  { name: "Python", level: 80, category: "Languages" },
   { name: "visionOS / ARKit", level: 92, category: "AR/VR" },
   { name: "RealityKit", level: 88, category: "AR/VR" },
   { name: "Computer Vision", level: 85, category: "AR/VR" },
+  { name: "Custom Render Engine", level: 88, category: "Graphics" },
+  { name: "Graphics Pipeline", level: 85, category: "Graphics" },
+  { name: "Shaders", level: 85, category: "Graphics" },
   { name: "iOS Development", level: 90, category: "Platforms" },
   { name: "Embedded Systems", level: 80, category: "Platforms" },
+  { name: "Android Open Platform", level: 75, category: "Platforms" },
+  { name: "Linux", level: 80, category: "Platforms" },
 ];
 
 export const navItems = [
