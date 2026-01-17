@@ -73,7 +73,7 @@ export const skills = [
   { name: "Custom Render Engine", level: 88, category: "Graphics" },
   { name: "Graphics Pipeline", level: 85, category: "Graphics" },
   { name: "Shaders", level: 85, category: "Graphics" },
-  { name: "iOS Development", level: 90, category: "Platforms" },
+  { name: "iOS Development", level: 95, category: "Platforms" },
   { name: "Embedded Systems", level: 80, category: "Platforms" },
   { name: "Android Open Platform", level: 75, category: "Platforms" },
   { name: "Linux", level: 80, category: "Platforms" },

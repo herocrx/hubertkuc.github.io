@@ -4,14 +4,20 @@ import { motion } from "framer-motion";
 import { ArrowDown, Linkedin } from "lucide-react";
 import { siteConfig } from "@/data/content";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const ParticleField = dynamic(() => import("./ParticleField"), {
+  ssr: false,
+});
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-terminal-bg px-4"
+      className="relative min-h-screen flex items-center justify-center bg-terminal-bg px-4 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto text-center py-20">
+      <ParticleField />
+      <div className="relative z-10 max-w-5xl mx-auto text-center py-20">
         {/* Profile Photo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

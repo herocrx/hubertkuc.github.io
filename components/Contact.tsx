@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Send } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 export default function Contact() {
@@ -52,15 +52,6 @@ export default function Contact() {
 
           {/* Social Links */}
           <div className="flex gap-4 mb-16">
-            <a
-              href={siteConfig.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-4 bg-terminal-surface border border-terminal-border rounded-lg text-terminal-text hover:border-terminal-cyan hover:text-terminal-cyan transition-all"
-            >
-              <Github size={22} />
-              <span className="text-lg">GitHub</span>
-            </a>
             <a
               href={siteConfig.social.linkedin}
               target="_blank"
