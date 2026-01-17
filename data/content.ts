@@ -57,8 +57,8 @@ export const experiences = [
     location: "Wrocław, Poland",
     period: "Jul 2016 - Oct 2016",
     description:
-      "Internship focused on telecommunications and software development. Gained hands-on experience with enterprise-level systems and engineering practices.",
-    technologies: ["Software Development", "Telecommunications"],
+      "Internship focused on telecommunications and hardware development. Developed custom hardware components in VHDL for simulation purposes.",
+    technologies: ["VHDL", "Verilog", "Hardware Development", "Telecommunications"],
   },
 ];
 
