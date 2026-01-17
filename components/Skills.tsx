@@ -11,8 +11,16 @@ export default function Skills() {
 
   const categories = [...new Set(skills.map((s) => s.category))];
 
+  const categoryColors: Record<string, string> = {
+    Languages: "border-terminal-cyan text-terminal-cyan",
+    Platforms: "border-terminal-green text-terminal-green",
+    Technical: "border-terminal-purple text-terminal-purple",
+    Graphics: "border-terminal-orange text-terminal-orange",
+    Engineering: "border-terminal-pink text-terminal-pink",
+  };
+
   return (
-    <section id="skills" className="py-24 bg-terminal-surface">
+    <section id="skills" className="py-24 bg-terminal-bg">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           ref={ref}
@@ -27,7 +35,7 @@ export default function Skills() {
           </div>
 
           {/* Skills by category */}
-          <div className="space-y-12">
+          <div className="space-y-10">
             {categories.map((category, catIndex) => (
               <motion.div
                 key={category}
@@ -35,28 +43,23 @@ export default function Skills() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: catIndex * 0.1 }}
               >
-                <h3 className="text-xl font-semibold text-terminal-cyan mb-6">
+                <h3 className="text-lg font-semibold text-terminal-muted mb-4">
                   {category}
                 </h3>
 
-                <div className="space-y-5">
+                <div className="flex flex-wrap gap-3">
                   {skills
                     .filter((s) => s.category === category)
                     .map((skill, index) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-lg text-terminal-text">{skill.name}</span>
-                          <span className="text-terminal-muted">{skill.level}%</span>
-                        </div>
-                        <div className="h-3 bg-terminal-bg rounded-full overflow-hidden">
-                          <motion.div
-                            className="h-full bg-terminal-cyan rounded-full"
-                            initial={{ width: 0 }}
-                            animate={isInView ? { width: `${skill.level}%` } : {}}
-                            transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
-                          />
-                        </div>
-                      </div>
+                      <motion.span
+                        key={skill.name}
+                        className={`px-4 py-2 rounded-lg border bg-terminal-surface/50 text-base ${categoryColors[category] || "border-terminal-border text-terminal-text"}`}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
+                      >
+                        {skill.name}
+                      </motion.span>
                     ))}
                 </div>
               </motion.div>

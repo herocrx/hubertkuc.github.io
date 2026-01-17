@@ -64,13 +64,16 @@ export const experiences = [
 
 export const skills = [
   // Languages
-  { name: "Objective-C / C++", level: 95, category: "Languages" },
+  { name: "Objective-C", level: 95, category: "Languages" },
+  { name: "C++", level: 95, category: "Languages" },
+  { name: "C", level: 90, category: "Languages" },
   { name: "Swift", level: 95, category: "Languages" },
   { name: "Python", level: 80, category: "Languages" },
   { name: "Shell Scripting", level: 75, category: "Languages" },
   // Platforms
-  { name: "iOS / visionOS", level: 95, category: "Platforms" },
-  { name: "System Daemons", level: 85, category: "Platforms" },
+  { name: "iOS", level: 95, category: "Platforms" },
+  { name: "visionOS", level: 95, category: "Platforms" },
+  { name: "macOS", level: 90, category: "Platforms" },
   { name: "Embedded Systems", level: 80, category: "Platforms" },
   { name: "Linux", level: 80, category: "Platforms" },
   // Technical Domains
@@ -96,7 +99,7 @@ export const education = [
     degree: "Master's degree, Electronics and Telecommunications",
     period: "2012 - 2017",
     location: "Poznan, Poland",
-    logo: "/logos/put.png",
+    logo: "/PP_znak_peˆny_RGB.png",
     highlights: [],
   },
   {
@@ -105,7 +108,7 @@ export const education = [
     degree: "Information Technology",
     period: "2016 - 2017",
     location: "Stuttgart, Germany",
-    logo: "/logos/stuttgart.png",
+    logo: "/Uni-stuttgart_logo.jpg",
     highlights: ["Erasmus student (1 year exchange)"],
   },
   {
@@ -114,7 +117,7 @@ export const education = [
     degree: "Electrical Engineering",
     period: "2014 - 2015",
     location: "Kaiserslautern, Germany",
-    logo: "/logos/rptu.png",
+    logo: "/Technical_University_of_Kaiserslautern_logo.original.jpg",
     highlights: ["Erasmus student (1 year exchange)", "Chancellor's award for best students"],
   },
 ];

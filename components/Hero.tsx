@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Linkedin } from "lucide-react";
+import { ArrowDown, Linkedin, FileDown } from "lucide-react";
 import { siteConfig } from "@/data/content";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -105,6 +105,15 @@ export default function Hero() {
           >
             <Linkedin size={20} />
             <span>LinkedIn</span>
+          </a>
+          <a
+            href="/cv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-3 bg-terminal-surface border border-terminal-border rounded-lg text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-all"
+          >
+            <FileDown size={20} />
+            <span>Download CV</span>
           </a>
         </motion.div>
 

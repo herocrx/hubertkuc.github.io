@@ -37,16 +37,13 @@ export default function Education() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
               >
                 {/* Logo */}
-                <div className="flex-shrink-0 w-16 h-16 bg-terminal-surface rounded-lg border border-terminal-border flex items-center justify-center overflow-hidden">
+                <div className="flex-shrink-0 w-16 h-16 bg-white rounded-lg border border-terminal-border flex items-center justify-center p-2">
                   <Image
                     src={edu.logo}
                     alt={`${edu.institution} logo`}
                     width={48}
                     height={48}
-                    className="object-contain"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
+                    className="object-contain w-full h-full"
                   />
                 </div>
 
