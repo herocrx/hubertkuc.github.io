@@ -39,6 +39,7 @@ export const experiences = [
     description:
       "Contributing to the development of Apple Vision Pro and spatial computing experiences. Working with cutting-edge AR/VR technologies to build the future of immersive computing.",
     technologies: ["Swift", "Objective-C", "visionOS", "ARKit", "RealityKit"],
+    youtubeId: "6O82UM1V9Y4",
   },
   {
     id: 2,
@@ -49,6 +50,7 @@ export const experiences = [
     description:
       "Developed the Mercedes MBUX Augmented Reality navigation system. Built AR features for ADAS (Advanced Driver Assistance Systems) including real-time navigation overlays and traffic light assistance.",
     technologies: ["C++", "Computer Vision", "AR", "ADAS", "Embedded Systems"],
+    youtubeId: "2bRZytJ5LL4",
   },
   {
     id: 3,

@@ -57,6 +57,19 @@ export default function Experience() {
                   {exp.description}
                 </p>
 
+                {/* YouTube Video */}
+                {exp.youtubeId && (
+                  <div className="mb-6 aspect-video max-w-2xl">
+                    <iframe
+                      className="w-full h-full rounded-lg border border-terminal-border"
+                      src={`https://www.youtube.com/embed/${exp.youtubeId}`}
+                      title={`${exp.company} video`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                )}
+
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
