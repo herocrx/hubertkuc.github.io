@@ -14,13 +14,13 @@ export const aboutContent = {
 Currently at Apple, focused on low-level systems programming, algorithm optimization, and spatial computing for Vision Pro.
 
 Strong background in Objective-C/C++. Specialized in performance optimization,
-real-time signal processing, and computer vision (face, hand, body tracking).
+real-time signal processing, computer vision, and computer graphics.
 
 Previously at HARMAN International, developed the Mercedes MBUX Augmented Reality navigation system
 and ADAS features including real-time navigation overlays.`,
   highlights: [
     "Real-time frameworks for iOS & visionOS",
-    "Computer vision: face, hand, body tracking",
+    "Computer vision & computer graphics",
     "Performance optimization specialist",
     "Low-level systems programming",
     "Master's degree in Electronics and Telecommunications",
@@ -35,7 +35,7 @@ export const experiences = [
     location: "Munich, Bavaria, Germany",
     period: "Jun 2022 - Present",
     description:
-      "Building real-time frameworks for Vision Pro and spatial computing. Focused on low-level systems programming, real-time signal processing, and computer vision (face, hand, body tracking). Emphasis on performance optimization and system stability.",
+      "Building and integrating algorithms for Vision Pro and spatial computing. Developing real-time frameworks with focus on low-level systems programming, computer vision, and computer graphics. Emphasis on performance optimization and system stability.",
     technologies: ["Objective-C/C++", "Swift", "visionOS", "Real-time Systems", "Computer Vision"],
     youtubeId: "6O82UM1V9Y4",
   },
