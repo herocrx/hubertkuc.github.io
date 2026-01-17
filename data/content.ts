@@ -89,10 +89,41 @@ export const skills = [
   { name: "Framework Architecture", level: 85, category: "Engineering" },
 ];
 
+export const education = [
+  {
+    id: 1,
+    institution: "Poznan University of Technology",
+    degree: "Master's degree, Electronics and Telecommunications",
+    period: "2012 - 2017",
+    location: "Poznan, Poland",
+    logo: "/logos/put.png",
+    highlights: [],
+  },
+  {
+    id: 2,
+    institution: "University of Stuttgart",
+    degree: "Information Technology",
+    period: "2016 - 2017",
+    location: "Stuttgart, Germany",
+    logo: "/logos/stuttgart.png",
+    highlights: ["Erasmus student (1 year exchange)"],
+  },
+  {
+    id: 3,
+    institution: "RPTU Kaiserslautern-Landau",
+    degree: "Electrical Engineering",
+    period: "2014 - 2015",
+    location: "Kaiserslautern, Germany",
+    logo: "/logos/rptu.png",
+    highlights: ["Erasmus student (1 year exchange)", "Chancellor's award for best students"],
+  },
+];
+
 export const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];

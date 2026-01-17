@@ -5,6 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Mail } from "lucide-react";
 import { aboutContent, siteConfig } from "@/data/content";
+import Image from "next/image";
 
 export default function About() {
   const ref = useRef(null);
@@ -42,9 +43,33 @@ export default function About() {
             </div>
           </div>
 
-          {/* Description */}
-          <div className="text-lg text-terminal-text leading-relaxed mb-12 whitespace-pre-line">
-            {aboutContent.description}
+          {/* Content grid */}
+          <div className="grid md:grid-cols-2 gap-10 mb-12">
+            {/* Description */}
+            <div className="text-lg text-terminal-text leading-relaxed whitespace-pre-line">
+              {aboutContent.description}
+            </div>
+
+            {/* Apple Park Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative overflow-hidden rounded-xl border border-terminal-border">
+                <Image
+                  src="/apple-park.jpg"
+                  alt="Hubert at Apple Park"
+                  width={600}
+                  height={450}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                  <span className="text-sm text-white/80">Apple Park, Cupertino</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Highlights */}
