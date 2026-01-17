@@ -1,120 +1,146 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import { SHARED_NODES, CONNECTION_DISTANCE_HERO } from "./networkConfig";
-
-function NetworkLines() {
-  const linesRef = useRef(null);
-
-  useFrame(() => {
-    if (!linesRef.current) return;
-
-    const time = performance.now() * 0.001;
-    const currentPositions = [];
-
-    for (let i = 0; i < SHARED_NODES.length; i++) {
-      const node = SHARED_NODES[i];
-      const x = node.x + Math.sin(time * node.speedX + node.phase) * 0.3;
-      const y = node.y + Math.sin(time * node.speedY + node.phase) * 0.4;
-      const z = node.z + Math.sin(time * 0.2 + node.phase) * 0.2;
-
-      currentPositions.push({ x, y, z });
-    }
-
-    const linePositions = [];
-    const lineColors = [];
-
-    for (let i = 0; i < SHARED_NODES.length; i++) {
-      for (let j = i + 1; j < SHARED_NODES.length; j++) {
-        const dx = currentPositions[i].x - currentPositions[j].x;
-        const dy = currentPositions[i].y - currentPositions[j].y;
-        const dz = currentPositions[i].z - currentPositions[j].z;
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-        if (dist < CONNECTION_DISTANCE_HERO) {
-          const opacity = 1 - dist / CONNECTION_DISTANCE_HERO;
-          const colI = new THREE.Color(SHARED_NODES[i].color);
-          const colJ = new THREE.Color(SHARED_NODES[j].color);
-
-          linePositions.push(
-            currentPositions[i].x, currentPositions[i].y, currentPositions[i].z,
-            currentPositions[j].x, currentPositions[j].y, currentPositions[j].z
-          );
-
-          lineColors.push(
-            colI.r * opacity, colI.g * opacity, colI.b * opacity,
-            colJ.r * opacity, colJ.g * opacity, colJ.b * opacity
-          );
-        }
-      }
-    }
-
-    linesRef.current.geometry.setAttribute(
-      'position',
-      new THREE.Float32BufferAttribute(linePositions, 3)
-    );
-    linesRef.current.geometry.setAttribute(
-      'color',
-      new THREE.Float32BufferAttribute(lineColors, 3)
-    );
-  });
-
-  return (
-    <lineSegments ref={linesRef}>
-      <bufferGeometry />
-      <lineBasicMaterial
-        vertexColors
-        transparent
-        opacity={0.4}
-        blending={THREE.AdditiveBlending}
-      />
-    </lineSegments>
-  );
-}
+import { useRef, useEffect } from "react";
 
 export default function ParticleField() {
-  const [isMounted, setIsMounted] = useState(false);
+  const canvasRef = useRef(null);
+  const animationRef = useRef(null);
+  const nodesRef = useRef([]);
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  if (!isMounted) return null;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const colors = ["#67e8f9", "#4ade80", "#c4b5fd"];
+    const nodeCount = 40;
+    const connectionDistance = 150;
+
+    // Initialize nodes
+    const initNodes = () => {
+      const nodes = [];
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          color: colors[Math.floor(Math.random() * colors.length)],
+        });
+      }
+      nodesRef.current = nodes;
+    };
+
+    // Resize canvas
+    const resize = () => {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+
+      // Reinitialize nodes on resize to fill new space
+      if (nodesRef.current.length === 0) {
+        initNodes();
+      } else {
+        // Adjust existing nodes to new bounds
+        nodesRef.current.forEach(node => {
+          if (node.x > canvas.width) node.x = Math.random() * canvas.width;
+          if (node.y > canvas.height) node.y = Math.random() * canvas.height;
+        });
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const nodes = nodesRef.current;
+
+      // Update and draw nodes
+      nodes.forEach((node) => {
+        // Update position
+        node.x += node.vx;
+        node.y += node.vy;
+
+        // Bounce off edges
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+        // Keep in bounds
+        node.x = Math.max(0, Math.min(canvas.width, node.x));
+        node.y = Math.max(0, Math.min(canvas.height, node.y));
+      });
+
+      // Draw connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < connectionDistance) {
+            const opacity = (1 - dist / connectionDistance) * 0.4;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+
+            // Create gradient line
+            const gradient = ctx.createLinearGradient(
+              nodes[i].x, nodes[i].y,
+              nodes[j].x, nodes[j].y
+            );
+            gradient.addColorStop(0, nodes[i].color + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
+            gradient.addColorStop(1, nodes[j].color + Math.floor(opacity * 255).toString(16).padStart(2, '0'));
+
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    // Initialize
+    resize();
+    initNodes();
+    animate();
+
+    // Handle resize
+    window.addEventListener("resize", resize);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
-      className="absolute inset-0 z-0 pointer-events-none"
       style={{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 0,
+        pointerEvents: "none",
       }}
     >
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 75 }}
+      <canvas
+        ref={canvasRef}
         style={{
-          background: "transparent",
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          top: 0,
-          left: 0,
+          display: "block",
+          width: "100%",
+          height: "100%",
         }}
-        dpr={[1, 1.5]}
-        gl={{
-          alpha: true,
-          antialias: true,
-          powerPreference: "default",
-        }}
-      >
-        <NetworkLines />
-      </Canvas>
+      />
     </div>
   );
 }
