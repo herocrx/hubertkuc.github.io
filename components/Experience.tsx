@@ -21,8 +21,7 @@ export default function Experience() {
         >
           {/* Section header */}
           <div className="mb-12">
-            <span className="text-terminal-green text-lg">$ cat experience.log</span>
-            <h2 className="text-4xl font-bold text-terminal-text mt-4">Experience</h2>
+            <h2 className="text-4xl font-bold text-terminal-text">Experience</h2>
           </div>
 
           {/* Experience list */}

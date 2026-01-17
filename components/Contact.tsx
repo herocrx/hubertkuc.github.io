@@ -21,8 +21,7 @@ export default function Contact() {
         >
           {/* Section header */}
           <div className="mb-12">
-            <span className="text-terminal-green text-lg">$ ./contact.sh</span>
-            <h2 className="text-4xl font-bold text-terminal-text mt-4">Get in Touch</h2>
+            <h2 className="text-4xl font-bold text-terminal-text">Get in Touch</h2>
             <p className="text-xl text-terminal-muted mt-4">
               Have a question or want to work together? Feel free to reach out!
             </p>

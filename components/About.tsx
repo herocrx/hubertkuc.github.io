@@ -22,8 +22,7 @@ export default function About() {
         >
           {/* Section header */}
           <div className="mb-12">
-            <span className="text-terminal-green text-lg">$ cat about.md</span>
-            <h2 className="text-4xl font-bold text-terminal-text mt-4">About Me</h2>
+            <h2 className="text-4xl font-bold text-terminal-text">About Me</h2>
           </div>
 
           {/* Location & Email */}

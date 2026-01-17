@@ -39,15 +39,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Greeting */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-6"
-        >
-          <span className="text-terminal-green text-lg">$ whoami</span>
-        </motion.div>
 
         {/* Name */}
         <motion.h1

@@ -22,8 +22,7 @@ export default function Education() {
         >
           {/* Section header */}
           <div className="mb-12">
-            <span className="text-terminal-green text-lg">$ cat education.log</span>
-            <h2 className="text-4xl font-bold text-terminal-text mt-4">Education</h2>
+            <h2 className="text-4xl font-bold text-terminal-text">Education</h2>
           </div>
 
           {/* Education list */}

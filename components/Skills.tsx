@@ -30,8 +30,7 @@ export default function Skills() {
         >
           {/* Section header */}
           <div className="mb-12">
-            <span className="text-terminal-green text-lg">$ cat skills.json</span>
-            <h2 className="text-4xl font-bold text-terminal-text mt-4">Skills</h2>
+            <h2 className="text-4xl font-bold text-terminal-text">Skills</h2>
           </div>
 
           {/* Skills by category */}
