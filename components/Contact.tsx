@@ -12,7 +12,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 bg-terminal-bg">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -117,7 +117,7 @@ export default function Contact() {
       </div>
 
       {/* Footer */}
-      <div className="max-w-3xl mx-auto px-6 mt-16 text-center text-terminal-muted">
+      <div className="max-w-5xl mx-auto px-6 mt-16 text-center text-terminal-muted">
         <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
       </div>
     </section>

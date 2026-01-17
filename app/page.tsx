@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -9,7 +10,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <Sidebar />
+      <main className="lg:ml-20">
         <Hero />
         <About />
         <Experience />

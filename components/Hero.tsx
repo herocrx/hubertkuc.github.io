@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 import { siteConfig } from "@/data/content";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -10,12 +11,33 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center bg-terminal-bg px-4"
     >
-      <div className="max-w-3xl mx-auto text-center py-20">
+      <div className="max-w-5xl mx-auto text-center py-20">
+        {/* Profile Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 relative"
+        >
+          {/* Glowing ring behind the photo */}
+          <div className="absolute inset-0 mx-auto w-[200px] h-[200px] rounded-full bg-gradient-to-r from-terminal-cyan via-terminal-green to-terminal-cyan opacity-60 blur-xl animate-pulse" />
+          <div className="relative">
+            <Image
+              src="/profile.jpg"
+              alt={siteConfig.name}
+              width={180}
+              height={180}
+              className="rounded-full mx-auto border-4 border-terminal-cyan/80 shadow-[0_0_40px_rgba(0,255,255,0.3),0_0_80px_rgba(0,255,255,0.1),0_20px_40px_rgba(0,0,0,0.5)] ring-2 ring-terminal-green/30 ring-offset-4 ring-offset-terminal-bg"
+              priority
+            />
+          </div>
+        </motion.div>
+
         {/* Greeting */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-6"
         >
           <span className="text-terminal-green text-lg">$ whoami</span>
@@ -25,7 +47,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-terminal-text mb-6"
         >
           {siteConfig.name}
@@ -35,7 +57,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="text-2xl md:text-3xl text-terminal-cyan mb-8"
         >
           {siteConfig.title}
@@ -45,7 +67,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="text-xl text-terminal-muted mb-10 max-w-2xl mx-auto leading-relaxed"
         >
           {siteConfig.description}
@@ -55,7 +77,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.5 }}
           className="flex items-center justify-center gap-2 mb-12"
         >
           <span className="w-3 h-3 rounded-full bg-terminal-green animate-pulse" />
@@ -67,7 +89,7 @@ export default function Hero() {
           className="flex justify-center gap-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.6 }}
         >
           <a
             href={siteConfig.social.github}
@@ -94,7 +116,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.7 }}
         >
           <a
             href="#contact"

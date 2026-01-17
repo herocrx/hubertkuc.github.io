@@ -12,7 +12,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 bg-terminal-surface">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
