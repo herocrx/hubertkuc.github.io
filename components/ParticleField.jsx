@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { SHARED_NODES, CONNECTION_DISTANCE_HERO } from "./networkConfig";
@@ -75,13 +75,43 @@ function NetworkLines() {
 }
 
 export default function ParticleField() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none" style={{ width: '100%', height: '100%' }}>
+    <div
+      className="absolute inset-0 z-0 pointer-events-none"
+      style={{
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+    >
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}
-        style={{ background: "transparent", width: '100%', height: '100%' }}
-        dpr={[1, 2]}
-        gl={{ alpha: true }}
+        style={{
+          background: "transparent",
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+        dpr={[1, 1.5]}
+        gl={{
+          alpha: true,
+          antialias: true,
+          powerPreference: "default",
+        }}
       >
         <NetworkLines />
       </Canvas>

@@ -73,3 +73,9 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Ensure WebGL canvas shows on mobile */
+canvas {
+  display: block !important;
+  touch-action: none;
+}
