@@ -10,19 +10,19 @@ export const siteConfig = {
 };
 
 export const aboutContent = {
-  description: `I'm an AR/VR Software Engineer with 8+ years of experience in software development.
-Currently working at Apple, contributing to the future of spatial computing and the Vision Pro platform.
+  description: `Software engineer building real-time frameworks for Apple platforms.
+Currently at Apple, focused on low-level systems programming, algorithm optimization, and spatial computing for Vision Pro.
 
-Previously, I worked on cutting-edge ADAS (Advanced Driver Assistance Systems) at HARMAN International,
-developing the Mercedes MBUX Augmented Reality navigation system.
+Strong background in Objective-C/C++. Specialized in performance optimization,
+real-time signal processing, and computer vision (face, hand, body tracking).
 
-I'm passionate about pushing the boundaries of what's possible with immersive technologies
-and creating experiences that blend the digital and physical worlds.`,
+Previously at HARMAN International, developed the Mercedes MBUX Augmented Reality navigation system
+and ADAS features including real-time navigation overlays.`,
   highlights: [
-    "8+ years of professional software engineering experience",
-    "AR/VR expertise with Apple Vision Pro development",
-    "Swift & Objective-C specialist",
-    "Background in automotive AR (Mercedes MBUX)",
+    "Real-time frameworks for iOS & visionOS",
+    "Computer vision: face, hand, body tracking",
+    "Performance optimization specialist",
+    "Low-level systems programming",
     "Master's degree in Electronics and Telecommunications",
   ],
 };
@@ -35,8 +35,8 @@ export const experiences = [
     location: "Munich, Bavaria, Germany",
     period: "Jun 2022 - Present",
     description:
-      "Contributing to the development of Apple Vision Pro and spatial computing experiences. Working with cutting-edge AR/VR technologies to build the future of immersive computing.",
-    technologies: ["Swift", "Objective-C", "visionOS", "ARKit", "RealityKit"],
+      "Building real-time frameworks for Vision Pro and spatial computing. Focused on low-level systems programming, real-time signal processing, and computer vision (face, hand, body tracking). Emphasis on performance optimization and system stability.",
+    technologies: ["Objective-C/C++", "Swift", "visionOS", "Real-time Systems", "Computer Vision"],
     youtubeId: "6O82UM1V9Y4",
   },
   {
@@ -63,20 +63,30 @@ export const experiences = [
 ];
 
 export const skills = [
+  // Languages
+  { name: "Objective-C / C++", level: 95, category: "Languages" },
   { name: "Swift", level: 95, category: "Languages" },
-  { name: "Objective-C", level: 90, category: "Languages" },
-  { name: "C++", level: 85, category: "Languages" },
   { name: "Python", level: 80, category: "Languages" },
-  { name: "visionOS / ARKit", level: 92, category: "AR/VR" },
-  { name: "RealityKit", level: 88, category: "AR/VR" },
-  { name: "Computer Vision", level: 85, category: "AR/VR" },
+  { name: "Shell Scripting", level: 75, category: "Languages" },
+  // Platforms
+  { name: "iOS / visionOS", level: 95, category: "Platforms" },
+  { name: "System Daemons", level: 85, category: "Platforms" },
+  { name: "Embedded Systems", level: 80, category: "Platforms" },
+  { name: "Linux", level: 80, category: "Platforms" },
+  // Technical Domains
+  { name: "Real-time Signal Processing", level: 90, category: "Technical" },
+  { name: "Computer Vision", level: 88, category: "Technical" },
+  { name: "Display & Rendering", level: 88, category: "Technical" },
+  { name: "Low-latency Systems", level: 85, category: "Technical" },
+  // Graphics
   { name: "Custom Render Engine", level: 88, category: "Graphics" },
   { name: "Graphics Pipeline", level: 85, category: "Graphics" },
   { name: "Shaders", level: 85, category: "Graphics" },
-  { name: "iOS Development", level: 95, category: "Platforms" },
-  { name: "Embedded Systems", level: 80, category: "Platforms" },
-  { name: "Android Open Platform", level: 75, category: "Platforms" },
-  { name: "Linux", level: 80, category: "Platforms" },
+  // Engineering
+  { name: "Performance Optimization", level: 92, category: "Engineering" },
+  { name: "System Stability", level: 88, category: "Engineering" },
+  { name: "Test Automation", level: 85, category: "Engineering" },
+  { name: "Framework Architecture", level: 85, category: "Engineering" },
 ];
 
 export const navItems = [
