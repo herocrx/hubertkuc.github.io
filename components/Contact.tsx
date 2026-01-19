@@ -2,13 +2,26 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Mail, MapPin, Linkedin, Send } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const subject = `Contact from ${name || "Website Visitor"}`;
+    const body = `${message}\n\n---\nFrom: ${name}\nEmail: ${email}`;
+
+    const mailtoUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+  };
 
   return (
     <section id="contact" className="py-24 bg-terminal-bg">
@@ -66,11 +79,13 @@ export default function Contact() {
           <div className="bg-terminal-surface border border-terminal-border rounded-lg p-8">
             <h3 className="text-2xl font-semibold text-terminal-text mb-6">Send a Message</h3>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-terminal-muted mb-2">Name</label>
                 <input
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-3 bg-terminal-bg border border-terminal-border rounded-lg text-terminal-text text-lg focus:outline-none focus:border-terminal-cyan transition-colors"
                   placeholder="Your name"
                 />
@@ -80,6 +95,8 @@ export default function Contact() {
                 <label className="block text-terminal-muted mb-2">Email</label>
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3 bg-terminal-bg border border-terminal-border rounded-lg text-terminal-text text-lg focus:outline-none focus:border-terminal-cyan transition-colors"
                   placeholder="your@email.com"
                 />
@@ -89,6 +106,8 @@ export default function Contact() {
                 <label className="block text-terminal-muted mb-2">Message</label>
                 <textarea
                   rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="w-full px-4 py-3 bg-terminal-bg border border-terminal-border rounded-lg text-terminal-text text-lg focus:outline-none focus:border-terminal-cyan transition-colors resize-none"
                   placeholder="Your message..."
                 />
