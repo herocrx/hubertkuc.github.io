@@ -70,17 +70,6 @@ export default function Hero() {
           {siteConfig.description}
         </motion.p>
 
-        {/* Status */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex items-center justify-center gap-2 mb-12"
-        >
-          <span className="w-3 h-3 rounded-full bg-terminal-green animate-pulse" />
-          <span className="text-terminal-green">Open to opportunities</span>
-        </motion.div>
-
         {/* Social Links */}
         <motion.div
           className="flex justify-center gap-6 mb-12"
